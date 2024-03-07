@@ -6,10 +6,7 @@ function displayInput() {
   outputElement.textContent = input;
 }
 
-fetch('https://ntfy.sh/did_you_open', {
-  method: 'POST', // PUT works too
-  body: 'hello there Natalie!'
-})
+
 
 
 const yesButton = document.getElementById('yesbutton');
@@ -62,45 +59,39 @@ function slideInHello() {
     video.play();
   }, 9500);
 
-  setTimeout(() => {
-    video.pause()
+  video.addEventListener("ended", function() {
+    console.log("The video has just ended!");
+    // Let's redirect now
+    setTimeout(() => {
+      video.style.animation = 'slide-out 2.4s';
 
-    video.style.animation = 'slide-out 2.4s';
-    fetch('https://ntfy.sh/did_you_open', {
-      method: 'POST', // PUT works too
-  body: 'just after the video'
-})
-  }, 76000);
+      
+    }, 500);
+  
+    setTimeout(() => {
+      video.style.display = 'none';
+    }, 2000);
+  
+    setTimeout(() => {
+      wink_emoji.style.display = 'flex';
+      wink_emoji.style.animation = 'slide-in 3s';
+    }, 2000);
+  
+    setTimeout(() => {
+      wink_emoji.style.animation = 'jump 2.4s infinite';
+    }, 6000);
+  
+    
+  
+  
+  
+}, true);
 
-  setTimeout(() => {
-    video.style.display = 'none';
-  }, 78000);
-
-  setTimeout(() => {
-    wink_emoji.style.display = 'flex';
-    wink_emoji.style.animation = 'slide-in 3s';
-  }, 77000);
-
-  setTimeout(() => {
-    wink_emoji.style.animation = 'jump 2.4s infinite';
-  }, 79500);
-
-  setTimeout(() => {
-    video.style.animation = 'slide-out 2.4s';
-    fetch('https://ntfy.sh/did_you_open', {
-      method: 'POST', // PUT works too
-  body: 'the end!'
-})
-
-
-}, 80000);
+  
 }
 
 start_button.addEventListener('click', function () {
-  fetch('https://ntfy.sh/did_you_open', {
-    method: 'POST', // PUT works too
-    body: ' Natalie clicked yes!!'
-  })
+  
 
   start_button.style.animation = 'dissapear 2s';
   setTimeout(() => {
