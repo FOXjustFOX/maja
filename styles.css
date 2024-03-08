@@ -58,16 +58,7 @@ body {
     border-radius: 30px;
 }
 
-@media (max-width: 600px) {
-    #video {
-        display: none;
-        height: fit-content;
-        width: 90vw;
-        /* border: #f4f4f4; */
-        border-radius: 30px;
-    }
 
-}
 
 #kobiety {
     /* display: none; */
